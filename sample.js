@@ -10,23 +10,22 @@ var untitled = untitled || (function() {
 		return true;
 	}
 
-	var etQueryParams = function(variable) {
+	var getParameterByName = function(name) {
 		var query = window.location.search.substring(1);
 		var vars = query.split("&");
-		for (var i=0;i<vars.length;i++) {
+		for (var i=0; i<vars.length; i++) {
 			var pair = vars[i].split("=");
-			if(pair[0] == variable){return pair[1];}
+			if(pair[0] == name){
+				return pair[1];
+			}
 		}
-		return(false);
+		return false;
 	}
 
 	_public.browser = browser;
 	_public.isMobile = isMobile;
-	_public.etQueryParams = etQueryParams;
+	_public.getParameterByName = getParameterByName;
 
 	return _public;
 
 }());
-
-var b = untitled.etQueryParams('tabActive');
-console.log(     b     );
