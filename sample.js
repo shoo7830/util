@@ -11,24 +11,11 @@ var untitled = untitled || (function() {
 	}
 
 	var getParameterByName = function(name) {
-		if (name === undefined) return;
+		if (name === undefined || name === '') return;
 		var query = window.location.search.substring(1);
-
-		console.log(  window.location.search ); //activetab=3&modal=333
-
 		var vars = query.split('&');
-
-		console.log(vars);
-
-
-		console.log(vars[0].split('=')[0]);
-		console.log(vars[1].split('=')[0]);
-
 		for (var i=0; i<vars.length; i++) {
 			var pair = vars[i].split('=');
-
-
-
 			if(pair[0] == name){
 				return pair[1];
 			}
