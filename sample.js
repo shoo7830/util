@@ -50,10 +50,78 @@ var untitled = untitled || (function() {
 		var vars = query.split('&');
 		for (var i=0; i<vars.length; i++) {
 			var pair = vars[i].split('=');
-			if(pair[0] == name){
+			if(pair[0] == name) {
 				return pair[1];
 			}
 		}
+	}
+
+
+	/**
+	 * 숫자만 입력가능하게 하는 함수
+	 */
+	var onlyNumber = function(event) {
+	    var event = event || window.event;
+	    var keyID = (event.which) ? event.which : event.keyCode;
+	    if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 9 || keyID == 46 || keyID == 37 || keyID == 39 ) {
+	        return;
+	    }else{
+	        return false;
+	    }
+	}
+
+	/**
+	 * 핸드폰 번호 입력할 때 자동대시
+	 * 11자리 : 000-0000-0000
+	 * 10자리 : 000-000-0000
+	 */
+	var autoDashPhoneNumber = function(str) {
+	    var str = str.replace(/[^0-9]/g, '');
+	    var tmp = '';
+	    if( str.length < 4){
+	        return str;
+	    }else if(str.length < 7){
+	        tmp += str.substr(0, 3);
+	        tmp += '-';
+	        tmp += str.substr(3);
+	        return tmp;
+	    }else if(str.length < 11){
+	        tmp += str.substr(0, 3);
+	        tmp += '-';
+	        tmp += str.substr(3, 3);
+	        tmp += '-';
+	        tmp += str.substr(6);
+	        return tmp;
+	    }else{
+	        tmp += str.substr(0, 3);
+	        tmp += '-';
+	        tmp += str.substr(3, 4);
+	        tmp += '-';
+	        tmp += str.substr(7);
+	        return tmp;
+	    }
+	    return str;
+	}
+
+	var autoDashDate = function(str){
+	    str = str.replace(/[^0-9]/g, '');
+
+	    var tmp = '';
+	    if( str.length < 5 ){
+	        return str;
+	    } else if(str.length < 7){
+	        tmp += str.substr(0, 4);
+	        tmp += '-';
+	        tmp += str.substr(4, 5);
+	        return tmp;
+	    } else {
+	        tmp += str.substr(0, 4);
+	        tmp += '-';
+	        tmp += str.substr(4, 2);
+	        tmp += '-';
+	        tmp += str.substr(6, 2);
+	        return tmp;
+	    }
 	}
 
 	var addComma = function() {
@@ -74,6 +142,10 @@ var untitled = untitled || (function() {
 	_public.browser = browser();
 	_public.isMobile = isMobile();
 	_public.getParameterByName = getParameterByName;
+	_public.onlyNumber = onlyNumber;
+	_public.autoDashPhoneNumber = autoDashPhoneNumber;
+	_public.autoDashDate = autoDashDate;
+	
 	
 	_public.addComma = addComma;
 	_public.removeComma = removeComma;
