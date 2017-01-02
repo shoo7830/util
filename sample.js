@@ -6,7 +6,7 @@ var untitled = untitled || (function() {
     var _public = {}
 
     /* ========================================================================
-    * brief: browser name, version detector
+    * brief: browser name and version detector
     * usage: untitled.browser.name;
     * usage: untitled.browser.version;
     * =========================================================================
