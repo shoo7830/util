@@ -1,21 +1,24 @@
+// untitled v1.0.0
+// by gabia FE Development Team
+
 var untitled = untitled || (function() {
 
-	var _public = {}
+    var _public = {}
 
-	var browser = function() {
-		var browserPool = [
-			{detectStr: "msie", name: "ie"},
-			{detectStr: "trident", name: "ie"},
-			{detectStr: "edge", name: "edge"},
-			{detectStr: "firefox", name: "firefox"},
-			{detectStr: "opr", name: "opera"},
-			{detectStr: "opera mini", name: "opera mini"},
-			{detectStr: "chrome", name: "chrome"},
-			{detectStr: "crios", name: "chrome"},
-			{detectStr: "safari", name: "safari"}
-		];
-		var ua = navigator.userAgent.toLowerCase();
-		var n, v, vOffset;
+    var browser = function() {
+        var browserPool = [
+            {detectStr: "msie", name: "ie"},
+            {detectStr: "trident", name: "ie"},
+            {detectStr: "edge", name: "edge"},
+            {detectStr: "firefox", name: "firefox"},
+            {detectStr: "opr", name: "opera"},
+            {detectStr: "opera mini", name: "opera mini"},
+            {detectStr: "chrome", name: "chrome"},
+            {detectStr: "crios", name: "chrome"},
+            {detectStr: "safari", name: "safari"}
+        ];
+        var ua = navigator.userAgent.toLowerCase();
+        var n, v, vOffset;
 		for(var i in browserPool) {
 			if((vOffset = ua.indexOf(browserPool[i].detectStr)) > -1) {
 				n = browserPool[i].name;
@@ -39,12 +42,17 @@ var untitled = untitled || (function() {
 		}
 		return {name: n, version: v};		
 	}
-
-	var isMobile = function() {
-		var ua = navigator.userAgent.toLowerCase();
-		var detectStr = /mobile|ip(hone|od|ad)|android|blackberry|iemobile|kindle|netfront|silk-accelerated|(hpw|web)os|fennec|minimo|opera m(obi|ini)|blazer|dolfin|dolphin|skyfire|zune/;
-		return detectStr.test(ua) ? true : false;
-	}
+    
+    /* ========================================================================
+    * brief: mobile device detector
+    * usage: untitled.isMobile;
+    * ========================================================================
+    */
+    var isMobile = function() {
+        var ua = navigator.userAgent.toLowerCase();
+        var detectStr = /mobile|ip(hone|od|ad)|android|blackberry|iemobile|kindle|netfront|silk-accelerated|(hpw|web)os|fennec|minimo|opera m(obi|ini)|blazer|dolfin|dolphin|skyfire|zune/;
+        return detectStr.test(ua) ? true : false;
+    }
 
    /* ========================================================================
     * brief: get parameter values ​​from an URL
