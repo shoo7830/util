@@ -9,7 +9,9 @@ var untitled = untitled || (function() {
 			{detectStr: "edge", name: "edge"},
 			{detectStr: "firefox", name: "firefox"},
 			{detectStr: "opr", name: "opera"},
+			{detectStr: "opera mini", name: "opera mini"},
 			{detectStr: "chrome", name: "chrome"},
+			{detectStr: "crios", name: "chrome"},
 			{detectStr: "safari", name: "safari"}
 		];
 		var ua = navigator.userAgent.toLowerCase();
@@ -39,9 +41,9 @@ var untitled = untitled || (function() {
 	}
 
 	var isMobile = function() {
-		var pfm = navigator.platform.toLowerCase();
-		var detectStr = "win16|win32|win64|mac|macintel";
-		return (detectStr.indexOf(pfm)<0) ? true : false;
+		var ua = navigator.userAgent.toLowerCase();
+		var detectStr = /mobile|ip(hone|od|ad)|android|blackberry|iemobile|kindle|netfront|silk-accelerated|(hpw|web)os|fennec|minimo|opera m(obi|ini)|blazer|dolfin|dolphin|skyfire|zune/;
+		return detectStr.test(ua) ? true : false;
 	}
 
 	var getParameterByName = function(name) {
