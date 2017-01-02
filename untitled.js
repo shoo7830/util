@@ -5,7 +5,7 @@ var untitled = untitled || (function() {
 
     var _public = {}
 
-    /* ========================================================================
+   /* ========================================================================
     * brief: browser name and version detector
     * usage: untitled.browser.name;
     * usage: untitled.browser.version;
@@ -49,7 +49,7 @@ var untitled = untitled || (function() {
         return {name: n, version: v};		
     }
     
-    /* ========================================================================
+   /* ========================================================================
     * brief: mobile device detector
     * usage: untitled.isMobile;
     * =========================================================================
