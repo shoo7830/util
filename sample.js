@@ -46,6 +46,11 @@ var untitled = untitled || (function() {
 		return detectStr.test(ua) ? true : false;
 	}
 
+   /* ========================================================================
+    * brief: get parameter values ​​from an URL
+    * usage: untitled.getParameterByName('parameter name');
+    * ========================================================================
+    */
 	var getParameterByName = function(name) {
 		if (name === undefined || name === '') return;
 		var query = window.location.search.substring(1);
