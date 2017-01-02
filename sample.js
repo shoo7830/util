@@ -126,14 +126,18 @@ var untitled = untitled || (function() {
 	    }
 	}
 
-	var addComma = function() {
+	var addComma = function(num) {
 		//priceFormat
 		//Thousands Separator
 		//1000000 > 1,000,000
+		num = String(num).replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+		return num;
 	}
 
-	var removeComma = function() {
+	var removeComma = function(str) {
 		//1,000,000 > 1000000
+		str = Number(str.replace(/\,/g, ''));
+		return str;
 	}
 
 	//window popup open
