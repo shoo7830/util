@@ -9,7 +9,7 @@ var untitled = untitled || (function() {
     * brief: browser detector
     * usage: untitled.browser.name;
     * usage: untitled.browser.version;
-    * ========================================================================
+    * =========================================================================
     */
     var browser = function() {
         var browserPool = [
@@ -52,7 +52,7 @@ var untitled = untitled || (function() {
     /* ========================================================================
     * brief: mobile device detector
     * usage: untitled.isMobile;
-    * ========================================================================
+    * =========================================================================
     */
     var isMobile = function() {
         var ua = navigator.userAgent.toLowerCase();
