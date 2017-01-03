@@ -38,7 +38,7 @@ var untitled = untitled || (function() {
                 }
                 else {
                     v = ua.substr(vOffset + browserPool[i].detectStr.length + 1);
-                    v = parseFloat(v.split(' ')[0]);	
+                    v = parseFloat(v.split(' ')[0]);
                 }
                 break;
             }else{
@@ -46,9 +46,9 @@ var untitled = untitled || (function() {
                 v = 0;
             }
         }
-        return {name: n, version: v};		
+        return {name: n, version: v};
     }
-    
+
    /* ========================================================================
     * brief: mobile device detector
     * usage: untitled.isMobile;
@@ -77,6 +77,48 @@ var untitled = untitled || (function() {
         }
     }
 
+    /* ========================================================================
+    * brief: enter dash when entering cell phone number
+    * usage: document.getElementById('inputIdName').onkeyup = function(event) {
+                 var _val = this.value.trim();
+                 this.value = untitled.autoDashPhoneNumber(  this.value  ) ;
+             }
+    * ========================================================================
+    */
+    var autoDashPhoneNumber = function(str) {
+        var str = str.replace(/[^0-9]/g, '');
+        var tmp = '';
+        if( str.length < 4) {
+            return str;
+        }else if(str.length < 7) {
+            tmp += str.substr(0, 3);
+            tmp += '-';
+            tmp += str.substr(3);
+            return tmp;
+        }else if(str.length < 11) {
+            tmp += str.substr(0, 3);
+            tmp += '-';
+            tmp += str.substr(3, 3);
+            tmp += '-';
+            tmp += str.substr(6);
+            return tmp;
+        }else{
+            tmp += str.substr(0, 3);
+            tmp += '-';
+            tmp += str.substr(3, 4);
+            tmp += '-';
+            tmp += str.substr(7);
+            return tmp;
+        }
+        return str;
+    }
+
+
+
+
+
+
+
 
 	/**
 	 * 숫자만 입력가능하게 하는 함수
@@ -91,38 +133,7 @@ var untitled = untitled || (function() {
 	    }
 	}
 
-	/**
-	 * 핸드폰 번호 입력할 때 자동대시
-	 * 11자리 : 000-0000-0000
-	 * 10자리 : 000-000-0000
-	 */
-	var autoDashPhoneNumber = function(str) {
-	    var str = str.replace(/[^0-9]/g, '');
-	    var tmp = '';
-	    if( str.length < 4){
-	        return str;
-	    }else if(str.length < 7){
-	        tmp += str.substr(0, 3);
-	        tmp += '-';
-	        tmp += str.substr(3);
-	        return tmp;
-	    }else if(str.length < 11){
-	        tmp += str.substr(0, 3);
-	        tmp += '-';
-	        tmp += str.substr(3, 3);
-	        tmp += '-';
-	        tmp += str.substr(6);
-	        return tmp;
-	    }else{
-	        tmp += str.substr(0, 3);
-	        tmp += '-';
-	        tmp += str.substr(3, 4);
-	        tmp += '-';
-	        tmp += str.substr(7);
-	        return tmp;
-	    }
-	    return str;
-	}
+
 
 	var autoDashDate = function(str){
 	    str = str.replace(/[^0-9]/g, '');
@@ -163,15 +174,16 @@ var untitled = untitled || (function() {
 	var openPopup = function(url) {
         //window.open()
     }
-	
+
 	_public.browser = browser();
 	_public.isMobile = isMobile();
 	_public.getParameterByName = getParameterByName;
-	_public.onlyNumber = onlyNumber;
 	_public.autoDashPhoneNumber = autoDashPhoneNumber;
+
+	_public.onlyNumber = onlyNumber;
 	_public.autoDashDate = autoDashDate;
-	
-	
+
+
 	_public.addComma = addComma;
 	_public.removeComma = removeComma;
 
