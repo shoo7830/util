@@ -80,7 +80,7 @@ var untitled = untitled || (function() {
     /* ========================================================================
     * brief: enter dash when entering cell phone number
     * usage: document.getElementById('inputIdName').onkeyup = function(event) {
-                 var _val = this.value.trim();
+                 var _val = this.value;
                  this.value = untitled.autoDashPhoneNumber(  this.value  ) ;
              }
     * ========================================================================
