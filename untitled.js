@@ -164,8 +164,8 @@ var untitled = untitled || (function() {
         //window.open()
     }
 	
-	_public.browser = browser;
-	_public.isMobile = isMobile;
+	_public.browser = browser();
+	_public.isMobile = isMobile();
 	_public.getParameterByName = getParameterByName;
 	_public.onlyNumber = onlyNumber;
 	_public.autoDashPhoneNumber = autoDashPhoneNumber;
