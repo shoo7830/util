@@ -112,6 +112,41 @@ var untitled = untitled || (function() {
         return str;
     }
 
+   /* ========================================================================
+    * brief: enter dash when entering cell phone number
+    * usage: document.getElementById('inputIdName').onkeyup = function(event) {
+                 this.value = untitled.autoDashDate( this.value ) ;
+             }
+    * ========================================================================
+    */
+    var autoDashDate = function(str) {
+        var str = str.replace(/[^0-9]/g, '');
+        var tmp = '';
+        if( str.length < 5 ) {
+           return str;
+        }else if(str.length < 7) {
+           tmp += str.substr(0, 4);
+           tmp += '-';
+           tmp += str.substr(4, 5);
+   	       return tmp;
+        }else{
+            tmp += str.substr(0, 4);
+            tmp += '-';
+            tmp += str.substr(4, 2);
+            tmp += '-';
+            tmp += str.substr(6, 2);
+            return tmp;
+        }
+    }
+
+
+
+
+
+
+
+
+
 
 
 
@@ -178,9 +213,15 @@ var untitled = untitled || (function() {
 	_public.isMobile = isMobile();
 	_public.getParameterByName = getParameterByName;
 	_public.autoDashPhoneNumber = autoDashPhoneNumber;
-
-	_public.onlyNumber = onlyNumber;
 	_public.autoDashDate = autoDashDate;
+
+
+
+
+
+
+
+    _public.onlyNumber = onlyNumber;
 
 
 	_public.addComma = addComma;
