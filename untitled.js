@@ -25,7 +25,7 @@ var untitled = untitled || (function() {
         ];
         var ua = navigator.userAgent.toLowerCase();
         var n, v, vOffset;
-        for(var i in browserPool) {
+        for(var i=0; i<browserPool.length; i++) {
             if((vOffset = ua.indexOf(browserPool[i].detectStr)) > -1) {
                 n = browserPool[i].name;
                 if(browserPool[i].detectStr == 'trident') { //ie11
