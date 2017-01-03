@@ -87,7 +87,7 @@ var untitled = untitled || (function() {
     var autoDashPhoneNumber = function(str) {
         var str = str.replace(/[^0-9]/g, '');
         var tmp = '';
-        if( str.length < 4) {
+        if(str.length < 4) {
             return str;
         }else if(str.length < 7) {
             tmp += str.substr(0, 3);
@@ -122,7 +122,7 @@ var untitled = untitled || (function() {
     var autoDashDate = function(str) {
         var str = str.replace(/[^0-9]/g, '');
         var tmp = '';
-        if( str.length < 5 ) {
+        if(str.length < 5) {
            return str;
         }else if(str.length < 7) {
            tmp += str.substr(0, 4);
