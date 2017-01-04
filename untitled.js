@@ -78,7 +78,7 @@ var untitled = untitled || (function() {
     }
 
    /* ========================================================================
-    * brief: enter dash when entering cell phone number
+    * brief: automatically insert dash when entering cell phone number
     * usage: document.getElementById('inputIdName').onkeyup = function(event) {
                  this.value = untitled.autoDashPhoneNumber( this.value );
              }
@@ -113,7 +113,7 @@ var untitled = untitled || (function() {
     }
 
    /* ========================================================================
-    * brief: enter dash when entering cell phone number
+    * brief: automatically insert dash when entering date
     * usage: document.getElementById('inputIdName').onkeyup = function(event) {
                  this.value = untitled.autoDashDate( this.value );
              }
