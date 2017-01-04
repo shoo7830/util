@@ -165,10 +165,25 @@ var untitled = untitled || (function() {
         }
     }
 
-
-
-
-
+   /* ========================================================================
+    * brief: thousands separator
+    * usage: untitled.addComma(number);
+    * ========================================================================
+    */
+    var addComma = function(num) {
+        var num = String(num).replace(/(\d)(?=(\d{3})+$)/g, '$1,');
+        return num;
+    }
+   
+   /* ========================================================================
+    * brief: remove comma
+    * usage: untitled.removeComma(number);
+    * ========================================================================
+    */
+    var removeComma = function(str) {
+        var str = Number(str.replace(/\,/g, ''));
+        return str;
+    }
 
 
 
@@ -194,19 +209,6 @@ var untitled = untitled || (function() {
 	}
 
 
-	var addComma = function(num) {
-		//priceFormat
-		//Thousands Separator
-		//1000000 > 1,000,000
-		num = String(num).replace(/(\d)(?=(\d{3})+$)/g, '$1,');
-		return num;
-	}
-
-	var removeComma = function(str) {
-		//1,000,000 > 1000000
-		str = Number(str.replace(/\,/g, ''));
-		return str;
-	}
 
 	//window popup open
 	var openPopup = function(url) {
@@ -248,6 +250,9 @@ var untitled = untitled || (function() {
     _public.autoDashPhoneNumber = autoDashPhoneNumber;
     _public.autoDashDate = autoDashDate;
     _public.copyToClipboard = copyToClipboard;
+    _public.addComma = addComma;
+    _public.removeComma = removeComma;
+
 
 
 
@@ -258,8 +263,7 @@ var untitled = untitled || (function() {
     _public.onlyNumber = onlyNumber;
 
 
-	_public.addComma = addComma;
-	_public.removeComma = removeComma;
+	
 
 	_public.openPopup = openPopup;
 
