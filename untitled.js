@@ -242,11 +242,11 @@ var untitled = untitled || (function() {
 
 
 
-	_public.browser = browser();
-	_public.isMobile = isMobile();
-	_public.getParameterByName = getParameterByName;
-	_public.autoDashPhoneNumber = autoDashPhoneNumber;
-	_public.autoDashDate = autoDashDate;
+    _public.browser = browser();
+    _public.isMobile = isMobile();
+    _public.getParameterByName = getParameterByName;
+    _public.autoDashPhoneNumber = autoDashPhoneNumber;
+    _public.autoDashDate = autoDashDate;
     _public.copyToClipboard = copyToClipboard;
 
 
