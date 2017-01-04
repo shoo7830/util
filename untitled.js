@@ -185,6 +185,19 @@ var untitled = untitled || (function() {
         return str;
     }
 
+   /* ========================================================================
+    * brief: email validate
+    * usage: document.getElementById('email').onkeyup = function(event) {
+                 var flag = untitled.isValidateEmail( this.value ) ;
+                 console.log( flag );
+             }
+    * ========================================================================
+    */
+    var isValidateEmail = function(email) {
+        var reg_email = /^[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[@]{1}[-A-Za-z0-9_]+[-A-Za-z0-9_.]*[.]{1}[A-Za-z]{2,5}$/;
+        return reg_email.test(email);
+    }
+
 
 
 
@@ -252,7 +265,7 @@ var untitled = untitled || (function() {
     _public.copyToClipboard = copyToClipboard;
     _public.addComma = addComma;
     _public.removeComma = removeComma;
-
+    _public.isValidateEmail = isValidateEmail;
 
 
 
