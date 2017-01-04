@@ -145,7 +145,7 @@ var untitled = untitled || (function() {
     * ========================================================================
     */
     var copyToClipboard = function(text) {
-        if(text === undefined) return;
+        if(text === undefined || text === '') return;
         var _txt = text;
         if(window.clipboardData) {
             window.clipboardData.setData("text", _txt);
