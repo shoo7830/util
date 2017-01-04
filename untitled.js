@@ -247,9 +247,6 @@ var untitled = untitled || (function() {
 	_public.getParameterByName = getParameterByName;
 	_public.autoDashPhoneNumber = autoDashPhoneNumber;
 	_public.autoDashDate = autoDashDate;
-
-
-
     _public.copyToClipboard = copyToClipboard;
 
 
