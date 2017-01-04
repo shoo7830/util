@@ -1,4 +1,4 @@
-// untitled v1.0.0
+// dope v1.0.0
 // by gabia FE Development Team
 
 var untitled = untitled || (function() {
@@ -139,6 +139,32 @@ var untitled = untitled || (function() {
         }
     }
 
+   /* ========================================================================
+    * brief: copy to clipboard
+    * usage: untitled.copyToClipboard(text to copy);
+    * ========================================================================
+    */
+    var copyToClipboard = function(text) {
+        if(text === undefined) return;
+        var _txt = text;
+        if(window.clipboardData) {
+            window.clipboardData.setData("text", _txt);
+        }else{
+            var textarea = document.createElement("textarea");
+            textarea.textContent = _txt;
+            textarea.style.position = "fixed";
+            document.body.appendChild(textarea);
+            textarea.select();
+            try {
+                return document.execCommand("copy");
+            } catch (ex) {
+                return false;
+            } finally {
+                document.body.removeChild(textarea);
+            }
+        }
+    }
+
 
 
 
@@ -168,28 +194,6 @@ var untitled = untitled || (function() {
 	}
 
 
-
-	var autoDashDate = function(str){
-	    str = str.replace(/[^0-9]/g, '');
-
-	    var tmp = '';
-	    if( str.length < 5 ){
-	        return str;
-	    } else if(str.length < 7){
-	        tmp += str.substr(0, 4);
-	        tmp += '-';
-	        tmp += str.substr(4, 5);
-	        return tmp;
-	    } else {
-	        tmp += str.substr(0, 4);
-	        tmp += '-';
-	        tmp += str.substr(4, 2);
-	        tmp += '-';
-	        tmp += str.substr(6, 2);
-	        return tmp;
-	    }
-	}
-
 	var addComma = function(num) {
 		//priceFormat
 		//Thousands Separator
@@ -209,11 +213,44 @@ var untitled = untitled || (function() {
         //window.open()
     }
 
+
+    /*
+    https://customer.gabia.com/assets/js/manuals.js
+    뭔가 이상하게 만들어놨네...
+    URL 복사하기
+    */
+    /*var copyUrl = function() {
+        var url = location.href;
+        // for ie7,8
+        if($.browser.msie && Number($.browser.version) < 9.0) {
+            if(confirm("이 매뉴얼의 주소를 클립보드에 복사하시겠습니까?")) {
+                    window.clipboardData.setData("Text", url);
+                    alert("매뉴얼의 주소가 복사되었습니다.\n원하시는 위치에 Ctrl+V로 붙여넣기 하세요.");
+                }
+            }else {
+                $(".cpy-url").attr('data-clipboard-text', url);
+                    var clipboard = new Clipboard('.cpy-url');
+                    clipboard.on('success', function(e) {
+                    alert("매뉴얼의 주소가 복사되었습니다.\n원하시는 위치에 Ctrl+V로 붙여넣기 하세요.");
+                    e.clearSelection();
+            });
+        }
+    }*/
+
+
+
+
+
+
 	_public.browser = browser();
 	_public.isMobile = isMobile();
 	_public.getParameterByName = getParameterByName;
 	_public.autoDashPhoneNumber = autoDashPhoneNumber;
 	_public.autoDashDate = autoDashDate;
+
+
+
+    _public.copyToClipboard = copyToClipboard;
 
 
 
