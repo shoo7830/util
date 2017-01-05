@@ -187,9 +187,9 @@ var untitled = untitled || (function() {
 
    /* ========================================================================
     * brief: email validate
-    * usage: document.getElementById('email').onkeyup = function(event) {
-                 var flag = untitled.isValidateEmail( this.value ) ;
-                 console.log( flag );
+    * usage: document.getElementById('email').onblur = function(event) {
+                 var isValid = untitled.isValidateEmail( this.value ) ;
+                 console.log( isValid );
              }
     * ========================================================================
     */
@@ -198,65 +198,7 @@ var untitled = untitled || (function() {
         return reg_email.test(email);
     }
 
-
-
-
-
-
-
-
-
-
-
-	/**
-	 * 숫자만 입력가능하게 하는 함수
-	 */
-	var onlyNumber = function(event) {
-	    var event = event || window.event;
-	    var keyID = (event.which) ? event.which : event.keyCode;
-	    if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 9 || keyID == 46 || keyID == 37 || keyID == 39 ) {
-	        return;
-	    }else{
-	        return false;
-	    }
-	}
-
-
-
-	//window popup open
-	var openPopup = function(url) {
-        //window.open()
-    }
-
-
-    /*
-    https://customer.gabia.com/assets/js/manuals.js
-    뭔가 이상하게 만들어놨네...
-    URL 복사하기
-    */
-    /*var copyUrl = function() {
-        var url = location.href;
-        // for ie7,8
-        if($.browser.msie && Number($.browser.version) < 9.0) {
-            if(confirm("이 매뉴얼의 주소를 클립보드에 복사하시겠습니까?")) {
-                    window.clipboardData.setData("Text", url);
-                    alert("매뉴얼의 주소가 복사되었습니다.\n원하시는 위치에 Ctrl+V로 붙여넣기 하세요.");
-                }
-            }else {
-                $(".cpy-url").attr('data-clipboard-text', url);
-                    var clipboard = new Clipboard('.cpy-url');
-                    clipboard.on('success', function(e) {
-                    alert("매뉴얼의 주소가 복사되었습니다.\n원하시는 위치에 Ctrl+V로 붙여넣기 하세요.");
-                    e.clearSelection();
-            });
-        }
-    }*/
-
-
-
-
-
-
+   //public method
     _public.browser = browser();
     _public.isMobile = isMobile();
     _public.getParameterByName = getParameterByName;
@@ -266,20 +208,6 @@ var untitled = untitled || (function() {
     _public.addComma = addComma;
     _public.removeComma = removeComma;
     _public.isValidateEmail = isValidateEmail;
-
-
-
-
-
-
-
-    _public.onlyNumber = onlyNumber;
-
-
-	
-
-	_public.openPopup = openPopup;
-
 	return _public;
 
 }());
