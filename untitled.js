@@ -198,7 +198,7 @@ var untitled = untitled || (function() {
         return reg_email.test(email);
     }
 
-   //public method
+    /*public method*/
     _public.browser = browser();
     _public.isMobile = isMobile();
     _public.getParameterByName = getParameterByName;
