@@ -208,6 +208,6 @@ var untitled = untitled || (function() {
     _public.addComma = addComma;
     _public.removeComma = removeComma;
     _public.isValidateEmail = isValidateEmail;
-	return _public;
+    return _public;
 
 }());
