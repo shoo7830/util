@@ -187,7 +187,7 @@ var untitled = untitled || (function() {
 
    /* ========================================================================
     * brief: email validate
-    * usage: document.getElementById('email').onblur = function(event) {
+    * usage: document.getElementById('inputIdName').onblur = function(event) {
                  var isValid = untitled.isValidateEmail( this.value ) ;
                  console.log( isValid );
              }
