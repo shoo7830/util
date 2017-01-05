@@ -57,7 +57,7 @@ var untitled = untitled || (function() {
     var isMobile = function() {
         var ua = navigator.userAgent.toLowerCase();
         var detectStr = /mobile|ip(hone|od|ad)|android|blackberry|iemobile|kindle|netfront|silk-accelerated|(hpw|web)os|fennec|minimo|opera m(obi|ini)|blazer|dolfin|dolphin|skyfire|zune/;
-        return detectStr.test(ua) ? true : false;
+        return detectStr.test(ua);
     }
 
    /* ========================================================================
